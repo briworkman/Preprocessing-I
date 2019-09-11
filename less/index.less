@@ -3,57 +3,281 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+// Is this working?
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+@main-color: #4c5b96;
+.h3-font() {
+  margin: 1rem 0 1rem 0;
+  font-size: 1.6rem;
+  color: @main-color;
+}
+
+.h4-font() {
+  margin: 1rem 0 1rem 0;
+  font-size: 1.2rem;
+  color: #2c3351;
+  text-decoration: underline;
+}
+html {
+  font-size: 62.5%;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
+.container {
+  flex-wrap: nowrap;
+  font-family: "Roboto", sans-serif;
+
+  html,
+  body {
     height: 100%;
-}
+    width: 100%;
+  }
 
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: @main-color;
+
+    nav {
+      margin: 20px 0;
+      a {
+        margin: 5rem;
+        text-decoration: none;
+        color: white;
+
+        @media (max-width: 845px) {
+          margin: 2rem;
+        }
+
+        @media (max-width: 500px) {
+          margin: 2rem;
+        }
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    } //end nav here
+
+    h1 {
+      font-size: 3rem;
+      color: white;
+      border: 2px solid white;
+      padding: 10px;
+      border-radius: 15px;
+      margin: 0 0 10px 0;
+    }
+
+    p {
+      color: white;
+      font-size: 1rem;
+      margin: 10px;
+    }
+  } //end header
+
+  .mainContent {
+    display: flex;
+    margin: 0 0 0 5%;
+    justify-content: space-between;
+
+    @media (max-width: 500px) {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+
+    .leftContent {
+      width: 60%;
+
+      @media (max-width: 500px) {
+        width: 100%;
+        padding: 10px;
+      }
+
+      h3 {
+        .h3-font();
+      }
+
+      h4 {
+        .h4-font();
+      }
+
+      ul {
+        list-style-type: circle;
+
+        li {
+          margin: 5px;
+          margin-left: 20px;
+        }
+      }
+    }
+
+    .rightContent {
+      width: 40%;
+      padding-left: 2%;
+      background-color: lightgrey;
+
+      @media (max-width: 500px) {
+        width: 100%;
+      }
+
+      h3 {
+        .h3-font();
+      }
+
+      h4 {
+        .h4-font();
+      }
+      ul {
+        list-style-type: circle;
+        li {
+          margin: 5px;
+          margin-left: 20px;
+        }
+      }
+      .contact ul li {
+        list-style-type: none;
+        margin-bottom: 10px;
+        margin-left: 0px;
+
+        i {
+          margin: 5px;
+        }
+      }
+    }
+  }
+}
