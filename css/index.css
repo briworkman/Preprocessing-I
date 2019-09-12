@@ -150,7 +150,7 @@ table {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #4c5b96;
+  background-image: url("../images/bg.jpg");
 }
 .container header nav {
   margin: 20px 0;
